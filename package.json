@@ -1,0 +1,51 @@
+{
+  "name": "angular-http-api",
+  "version": "0.0.1",
+  "description": "An AngularJS HTTP API Service for making paramerterized HTTP calls and getting back useful data structures.",
+  "main": "http-api.min.js",
+  "dependencies": {
+    "gulp": "^3.8.5",
+    "gulp-concat": "^2.2.0",
+    "gulp-uglify": "^0.3.1"
+  },
+  "devDependencies": {
+    "del": "^0.1.1",
+    "gulp": "^3.8.5",
+    "gulp-concat": "^2.2.0",
+    "gulp-connect": "^2.0.5",
+    "gulp-coverage": "^0.1.24",
+    "gulp-jshint": "^1.6.4",
+    "gulp-karma": "0.0.4",
+    "gulp-size": "^0.4.0",
+    "gulp-uglify": "^0.3.1",
+    "gulp-util": "^2.2.19",
+    "jasmine-node": "^1.14.3",
+    "karma": "^0.12.16",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-jasmine": "^0.1.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/petermelias/angular-http-api.git"
+  },
+  "keywords": [
+    "angularjs",
+    "angular",
+    "http",
+    "api",
+    "xhr",
+    "json",
+    "ajax",
+    "rest",
+    "restful"
+  ],
+  "author": "Peter M. Elias",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/petermelias/angular-http-api/issues"
+  },
+  "homepage": "https://github.com/petermelias/angular-http-api"
+}
