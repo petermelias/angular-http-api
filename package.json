@@ -1,6 +1,6 @@
 {
   "name": "angular-http-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An AngularJS HTTP API Service for making paramerterized HTTP calls and getting back useful data structures.",
   "main": "http-api.min.js",
   "dependencies": {
