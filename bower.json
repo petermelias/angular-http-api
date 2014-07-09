@@ -32,5 +32,8 @@
   "moduleType": [
     "globals",
     "node"
-  ]
+  ],
+  "devDependencies": {
+    "angular-mocks": "~1.2.19"
+  }
 }

@@ -10,24 +10,37 @@ var gulp = require('gulp'),
     karma = require('gulp-karma'),
   	del = require('del'),
     exec = require('child_process').exec,
-    libFiles = './bower_components/*/*.min.js',
-    testFiles = './spec/*.js',
-  	srcFiles = './src/*.js',
+    deps = [
+      'bower_components/angular/angular.min.js',
+      'node_modules/underscore/underscore-min.js'
+    ],
+    testDeps = [
+      'bower_components/angular-mocks/angular-mocks.js'
+    ],
+    testFilePattern = './spec/*.js',
+  	srcFilePattern = './src/*.js',
   	outDir = '.',
-    outName = 'http-api.min.js';
+    outName = 'http-api.min.js',
+    bundleName = 'http-api-bundled.min.js';
 
 gulp.task('clean', function (cb) {
   del(outDir + '/' + outName, cb);
 });
 
+gulp.task('clean-bundle', function (cb) {
+  del(outDir + '/' + bundleName, cb);
+});
+
 gulp.task('jshint', function () {
-  return gulp.src(srcFiles)
+  return gulp.src(srcFilePattern)
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
 
 gulp.task('karma', function () {
-  return gulp.src([libFiles, srcFiles, testFiles])
+  var fileList = [];
+  fileList = fileList.concat(deps, testDeps, [srcFilePattern, testFilePattern]);
+  return gulp.src(fileList)
     .pipe(karma({
       configFile: 'karma.conf.js',
       action: 'run'
@@ -42,25 +55,29 @@ gulp.task('size', ['build'], function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch(srcFiles, ['build']);
+  gulp.watch(srcFilePattern, ['build']);
 });
 
 gulp.task('build', ['clean'], function () {
-  return gulp.src(srcFiles)
+  return gulp.src(srcFilePattern)
     .pipe(uglify())
     .pipe(concat(outName))
     .pipe(gulp.dest(outDir));
 });
 
-gulp.task('serve', function () {
-  connect.server({
-    port: 8000
-  });
+gulp.task('bundle', ['clean-bundle'], function () {
+  return gulp.src(deps.concat(srcFilePattern))
+    .pipe(uglify())
+    .pipe(concat(bundleName))
+    .pipe(gulp.dest(outDir));
 });
 
-gulp.task('launch', function () {
-  exec('open http://localhost:8000')
-});;
+gulp.task('serve', function () {
+  connect.server({
+    port: 8000,
+    root: 'demo'
+  });
+});
 
 gulp.task('test', ['jshint', 'karma']);
 gulp.task('run', ['serve', 'default']);

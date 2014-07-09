@@ -4,9 +4,7 @@
   "description": "An AngularJS HTTP API Service for making paramerterized HTTP calls and getting back useful data structures.",
   "main": "http-api.min.js",
   "dependencies": {
-    "gulp": "^3.8.5",
-    "gulp-concat": "^2.2.0",
-    "gulp-uglify": "^0.3.1"
+    "underscore": "^1.6.0"
   },
   "devDependencies": {
     "del": "^0.1.1",
