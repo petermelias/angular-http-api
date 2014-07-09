@@ -4,9 +4,11 @@
   "description": "An AngularJS HTTP API Service for making paramerterized HTTP calls and getting back useful data structures.",
   "main": "http-api.min.js",
   "dependencies": {
+    "angular": "^1.2.19",
     "underscore": "^1.6.0"
   },
   "devDependencies": {
+    "angular-mocks": "^1.2.19",
     "del": "^0.1.1",
     "gulp": "^3.8.5",
     "gulp-concat": "^2.2.0",
@@ -20,10 +22,11 @@
     "jasmine-node": "^1.14.3",
     "karma": "^0.12.16",
     "karma-chrome-launcher": "^0.1.4",
-    "karma-jasmine": "^0.1.5"
+    "karma-jasmine": "^0.1.5",
+    "karma-phantomjs-launcher": "^0.1.4"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/gulp karma"
   },
   "repository": {
     "type": "git",

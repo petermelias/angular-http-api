@@ -11,11 +11,11 @@ var gulp = require('gulp'),
   	del = require('del'),
     exec = require('child_process').exec,
     deps = [
-      'bower_components/angular/angular.min.js',
+      'node_modules/angular/lib/angular.min.js',
       'node_modules/underscore/underscore-min.js'
     ],
     testDeps = [
-      'bower_components/angular-mocks/angular-mocks.js'
+      'node_modules/angular-mocks/angular-mocks.js'
     ],
     testFilePattern = './spec/*.js',
   	srcFilePattern = './src/*.js',
