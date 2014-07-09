@@ -38,7 +38,7 @@ module.exports = function(config) {
     coverageReporter: {
       type: 'lcov',
       dir: 'coverage'
-    }
+    },
 
     // web server port
     port: 9876,
